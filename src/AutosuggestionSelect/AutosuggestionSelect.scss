@@ -1,0 +1,146 @@
+$mainColor: #434347;
+$secondColor: white;
+
+.autosuggestion-select {
+    margin-top: 100px;
+    display: inline-block;
+    position: relative;
+
+    .expand-btn {
+        background-color: $secondColor;
+        border: 1px solid $mainColor;
+        color: $mainColor;
+        padding: 8px 44px 8px 15px;
+        font-size: 1rem;
+        cursor: pointer;
+        outline: none;
+
+        .content {
+            border-right: 1px solid $mainColor;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+
+            .counter {
+                background-color: $mainColor;
+                color: $secondColor;
+                margin: 0 15px 0 6px;
+                padding: 4px 2px;
+                font-size: 0.9rem;
+                line-height: 1rem;
+                min-width: 22px;
+                text-align: center;
+            }
+        }
+
+        .arrow {
+            position: absolute;
+            right: 13px;
+            top: 50%;
+            transform: translateY(-50%) rotate(180deg);
+            transform-origin: center;
+            font-size: 1.6rem;
+            transition: 0.4s;
+            will-change: transform;
+        }
+    }
+
+    &.opened {
+        .expand-btn {
+            .arrow {
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    .searching-field {
+        position: absolute;
+        background-color: $secondColor;
+        padding-bottom: 42px;
+        top: calc(100% - 1px);
+        left: 0px;
+        width: 100%;
+        min-width: 300px;
+        border: 1px solid $mainColor;
+
+        .results-wrapper {
+            height: 300px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: relative;
+            border-top: 1px solid $mainColor;
+        }
+
+        .no-data {
+            color: $mainColor;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        input {
+            width: calc(100% - 30px);
+            padding: 10px;
+            margin: 14px 0;
+            border: 1px solid $mainColor;
+            color: $mainColor;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        ul {
+            list-style-type: none;
+
+            li {
+                position: relative;
+                text-align: left;
+                padding: 10px 50px 10px 15px;
+                cursor: pointer;
+                color: $mainColor;
+                font-size: 0.9rem;
+                border-bottom: 1px solid rgb(202, 202, 202);
+
+                &.selected {
+                    font-weight: 600;
+                    &::after {
+                        position: absolute;
+                        right: 15px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        content: "✓";
+                        line-height: 1rem;
+                    }
+                }
+
+                &:hover {
+                    background-color: $mainColor;
+                    color: $secondColor;
+                }
+            }
+        }
+
+        .reset-button {
+            background-color: $mainColor;
+            cursor: pointer;
+            color: $secondColor;
+            font-size: 0.9rem;
+            width: 100%;
+            padding: 12px 10px;
+            position: absolute;
+            border: none;
+            bottom: 0;
+            left: 0px;
+            transition: 0.4s;
+            will-change: background-color;
+
+            &:hover {
+                background-color: #323236;
+            }
+        }
+    }
+}

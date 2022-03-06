@@ -1,0 +1,33 @@
+$loaderColor: #434347;
+
+.loader {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+
+    &:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 45%;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        border: 3px solid $loaderColor;
+        transform-origin: center;
+        border-color: $loaderColor transparent $loaderColor transparent;
+        animation: circle-animation 1.2s linear infinite;
+    }
+
+    @keyframes circle-animation {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+}
