@@ -31,6 +31,9 @@ function AutosuggestionSelect({ name, actionOnChange }: AutosuggestionSelectProp
         } else {
             timeoutID.current = setTimeout(() => updateSearchResult(searchedValue), 200);
         }
+        return () => {
+            if (timeoutID.current) clearTimeout(timeoutID.current);
+        };
     }, [searchedValue]);
 
     useEffect(() => {
